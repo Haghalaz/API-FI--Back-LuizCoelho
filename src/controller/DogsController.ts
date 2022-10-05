@@ -1,7 +1,7 @@
 import { AppDataSource } from "../data-source";
 import { getRepository } from "typeorm";
 import { NextFunction, Request, Response } from "express";
-import { Dog } from "../entity/Dog";
+import { Dog } from "../entity/DogLC";
 
 export class DogsController {
   private dogRepository = AppDataSource.getRepository(Dog);

@@ -3,7 +3,6 @@ import * as bodyParser from "body-parser";
 import { Request, Response } from "express";
 import { AppDataSource } from "./data-source";
 import { Routes } from "./routes";
-import { Dog } from "./entity/Dog";
 
 AppDataSource.initialize()
   .then(async () => {
@@ -34,24 +33,11 @@ AppDataSource.initialize()
       );
     });
 
-    // setup express app here
-    // ...
-
     // start express server
     app.listen(3000);
 
-    // insert new users for test
-    await AppDataSource.manager.save(
-      AppDataSource.manager.create(Dog, {
-        name: "Timber",
-        age: 2,
-        owner: "Junior",
-        phone: "(41) 98767-3542",
-      })
-    );
-
     console.log(
-      "Server abriu na porta 3000. Abra http://localhost:3000/dogs para ver os resultados"
+      "Server abriu na porta 3000. Abra http://localhost:3000/dogs ou http://localhost:3000/cats para ver os resultados"
     );
   })
   .catch((error) => console.log(error));

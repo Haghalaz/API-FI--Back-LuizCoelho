@@ -1,10 +1,10 @@
 import { AppDataSource } from "../data-source";
 import { getRepository } from "typeorm";
 import { NextFunction, Request, Response } from "express";
-import { Cat } from "../entity/CatLC";
+import { User } from "../entity/UserLC";
 
-export class CatsController {
-  private dogRepository = AppDataSource.getRepository(Cat);
+export class UsersController {
+  private dogRepository = AppDataSource.getRepository(User);
 
   async all(request: Request, response: Response, next: NextFunction) {
     return this.dogRepository.find();
@@ -19,9 +19,9 @@ export class CatsController {
   }
 
   async remove(request: Request, response: Response, next: NextFunction) {
-    let catToRemove = await this.dogRepository.findOneBy({
+    let userToRemove = await this.dogRepository.findOneBy({
       id: request.params.id,
     });
-    await this.dogRepository.remove(catToRemove);
+    await this.dogRepository.remove(userToRemove);
   }
 }

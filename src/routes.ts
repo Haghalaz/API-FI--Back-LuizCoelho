@@ -1,5 +1,6 @@
 import { DogsController } from "./controller/DogsController";
 import { CatsController } from "./controller/CatsController";
+import { UsersController } from "./controller/UsersController";
 
 export const Routes = [
   {
@@ -49,5 +50,29 @@ export const Routes = [
     route: "/dogs/:id",
     controller: CatsController,
     action: "cats",
+  },
+  {
+    method: "get",
+    route: "/users",
+    controller: UsersController,
+    action: "all",
+  },
+  {
+    method: "get",
+    route: "/users/:id",
+    controller: UsersController,
+    action: "one",
+  },
+  {
+    method: "post",
+    route: "/users",
+    controller: UsersController,
+    action: "save",
+  },
+  {
+    method: "delete",
+    route: "/users/:id",
+    controller: UsersController,
+    action: "remove",
   },
 ];
