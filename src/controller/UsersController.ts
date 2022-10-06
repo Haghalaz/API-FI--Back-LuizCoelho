@@ -1,10 +1,10 @@
 import { AppDataSource } from "../data-source";
 import { getRepository } from "typeorm";
 import { NextFunction, Request, Response } from "express";
-import { User } from "../entity/UserLC";
+import { UserWR } from "../entity/UserWR";
 
 export class UsersController {
-  private dogRepository = AppDataSource.getRepository(User);
+  private dogRepository = AppDataSource.getRepository(UserWR);
 
   async all(request: Request, response: Response, next: NextFunction) {
     return this.dogRepository.find();
